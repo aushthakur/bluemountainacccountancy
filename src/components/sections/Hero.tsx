@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { useConsultationModal } from '@/lib/ConsultationModalContext';
 
 const stats = [
   { value: '20+', label: 'Years Experience' },
@@ -13,6 +14,7 @@ const stats = [
 ];
 
 export function Hero() {
+  const { openModal } = useConsultationModal();
   return (
     <section className="relative overflow-hidden min-h-screen flex items-center">
       
@@ -48,12 +50,12 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-10">
-            <a
-              href="#book"
+            <button
+              onClick={openModal}
               className="inline-flex items-center justify-center gap-2 bg-white text-neutral-900 font-bold px-7 py-3.5  hover:bg-neutral-100 transition-all text-sm shadow-lg hover:shadow-xl"
             >
               Book Free Consultation <ArrowRight size={16} />
-            </a>
+            </button>
             <a
               href="#pricing"
               className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white font-semibold px-7 py-3.5  hover:bg-white/20 transition-all text-sm"

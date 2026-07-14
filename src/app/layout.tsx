@@ -3,6 +3,8 @@ import { Outfit, Roboto } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/ui/CookieConsent";
 import { FloatingCTA } from "@/components/ui/FloatingCTA";
+import { ConsultationModalProvider } from "@/lib/ConsultationModalContext";
+import { ConsultationModal } from "@/components/ui/ConsultationModal";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -29,9 +31,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${outfit.variable} ${roboto.variable} h-full antialiased scroll-smooth`}>
       <body className="min-h-full flex flex-col bg-background text-text-main font-sans">
-        {children}
-        <CookieConsent />
-        <FloatingCTA />
+        <ConsultationModalProvider>
+          {children}
+          <CookieConsent />
+          <FloatingCTA />
+          <ConsultationModal />
+        </ConsultationModalProvider>
       </body>
     </html>
   );
