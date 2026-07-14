@@ -103,7 +103,7 @@ export function Navbar() {
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="relative w-80 h-16 flex items-center">
+            <div className="relative w-48 sm:w-64 lg:w-80 h-12 lg:h-16 flex items-center">
               <Image 
                 src={isScrolled ? "/blue-logo-transparent.png" : "/white-logo-transparent.png"}
                 alt="Blue Mountain Accountants Logo"

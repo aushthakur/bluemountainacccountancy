@@ -14,7 +14,7 @@ import { Footer } from '@/components/layout/Footer';
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-white max-w-[100vw] overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />

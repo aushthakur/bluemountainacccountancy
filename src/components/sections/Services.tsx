@@ -128,12 +128,12 @@ export function Services() {
         <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
           
           {/* Left Column: Tabs */}
-          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-4 overflow-x-auto pb-4 lg:pb-0 snap-x [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          <div className="lg:col-span-4 flex flex-row lg:flex-col gap-4 overflow-x-auto pb-4 lg:pb-0 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {serviceCategories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
-                className={`flex-shrink-0 w-[85vw] sm:w-[300px] lg:w-auto snap-center text-left px-6 py-6  transition-all duration-300 relative overflow-hidden group ${
+                className={`flex-shrink-0 w-full sm:w-[350px] lg:w-auto snap-center text-left px-6 py-6  transition-all duration-300 relative overflow-hidden group ${
                   activeCategory === category.id 
                     ? 'bg-primary text-white shadow-2xl scale-[1.02] z-10 border-none' 
                     : 'bg-white text-text-main hover:bg-white/80 hover:shadow-md border border-border-light'
