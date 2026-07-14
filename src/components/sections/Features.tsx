@@ -23,8 +23,8 @@ export function Features() {
       <div className="max-w-[1200px] mx-auto px-6 grid md:grid-cols-2 gap-8">
         
         {/* Left Feature Card */}
-        <div className="bg-section-bg/30  p-10 border border-border-light/50 relative overflow-hidden h-[400px]">
-          <div className="space-y-4 relative z-10 w-2/3">
+        <div className="bg-section-bg/30 p-6 md:p-10 border border-border-light/50 relative overflow-hidden min-h-[280px] md:h-[400px]">
+          <div className="space-y-4 relative z-10 w-full sm:w-2/3">
             <div className="bg-white p-4  flex items-center justify-between shadow-sm border border-border-light/30">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8  bg-green-100 text-green-600 flex items-center justify-center">
@@ -48,7 +48,7 @@ export function Features() {
         </div>
 
         {/* Right Feature Card */}
-        <div className="bg-section-bg/30  relative overflow-hidden h-[400px] border border-border-light/50 group">
+        <div className="bg-section-bg/30 relative overflow-hidden min-h-[280px] md:h-[400px] border border-border-light/50 group">
           <Image 
             src="/features_dashboard.png"
             alt="Modern financial dashboard"

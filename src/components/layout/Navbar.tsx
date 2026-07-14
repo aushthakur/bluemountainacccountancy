@@ -89,7 +89,7 @@ export function Navbar() {
   const phoneColor = isScrolled ? "text-primary hover:text-accent" : "text-white hover:text-white/80";
   
   // Keep dropdowns matching light theme regardless of scroll position
-  const dropdownClass = "absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-border-light  p-6 w-[800px] z-50 mt-2 text-text-main";
+  const dropdownClass = "absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-border-light p-6 w-[min(800px,95vw)] z-50 mt-2 text-text-main";
 
   return (
     <>

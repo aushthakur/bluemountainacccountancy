@@ -60,10 +60,10 @@ export function Process() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex gap-8 items-start"
+                className="flex gap-4 md:gap-8 items-start"
               >
                 {/* Circle */}
-                <div className="w-14 h-14  bg-primary text-white font-bold text-sm flex items-center justify-center flex-shrink-0 shadow-lg z-10">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-primary text-white font-bold text-sm flex items-center justify-center flex-shrink-0 shadow-lg z-10">
                   {step.num}
                 </div>
 

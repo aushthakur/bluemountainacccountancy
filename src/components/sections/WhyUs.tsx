@@ -77,7 +77,7 @@ export function WhyUs() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.7 }}
-              className={`relative h-[440px]  overflow-hidden shadow-xl ${item.imgSide === 'left' ? 'order-1 lg:order-2' : ''}`}
+              className={`relative h-[280px] sm:h-[360px] lg:h-[440px] overflow-hidden shadow-xl ${item.imgSide === 'left' ? 'order-1 lg:order-2' : ''}`}
             >
               <Image 
                 src={item.imgSrc} 
