@@ -7,6 +7,7 @@ import {
   FileText, BookOpen, Users, Globe, Building2, Landmark,
   ClipboardList, BarChart2, Shield, Calculator, Briefcase, TrendingUp, ArrowRight
 } from 'lucide-react';
+import Link from 'next/link';
 
 const serviceCategories = [
   {
@@ -18,25 +19,25 @@ const serviceCategories = [
         icon: Calculator,
         title: 'Accounting Services',
         desc: 'Full management accounts, statutory filings and financial reporting.',
-        href: '#accounting',
+        href: '/services/accounting-services',
       },
       {
         icon: BookOpen,
         title: 'Bookkeeping Services',
         desc: 'Real-time cloud bookkeeping using Xero, QuickBooks or FreeAgent.',
-        href: '#bookkeeping',
+        href: '/services/bookkeeping-services',
       },
       {
         icon: Users,
         title: 'Payroll Services',
         desc: 'Full-service RTI payroll, PAYE, and workplace pension processing.',
-        href: '#payroll',
+        href: '/services/payroll-services',
       },
       {
         icon: BarChart2,
         title: 'Property Accountants',
         desc: 'Specialist advice for landlords on rental income, CGT, and portfolios.',
-        href: '#property',
+        href: '/services/property-accountants',
       },
     ]
   },
@@ -49,25 +50,25 @@ const serviceCategories = [
         icon: Briefcase,
         title: 'Corporate Tax Planning',
         desc: 'Proactive corporation tax planning, R&D credits, and allowances.',
-        href: '#tax',
+        href: '/services/corporate-tax-planning',
       },
       {
         icon: FileText,
         title: 'Self Assessment',
         desc: 'Stress-free returns for directors, freelancers, and high earners.',
-        href: '#selfassessment',
+        href: '/services/self-assessment',
       },
       {
         icon: Globe,
         title: 'VAT Returns',
         desc: 'MTD-compliant VAT submissions and full HMRC registration support.',
-        href: '#vat',
+        href: '/services/vat-returns',
       },
       {
         icon: ClipboardList,
         title: 'Company Secretarial',
         desc: 'Confirmation statements, PSC register, and Companies House compliance.',
-        href: '#secretarial',
+        href: '/services/company-secretarial',
       },
     ]
   },
@@ -80,25 +81,25 @@ const serviceCategories = [
         icon: TrendingUp,
         title: 'Business Advisory',
         desc: 'Cash flow forecasting, business planning, and strategic growth advice.',
-        href: '#advisory',
+        href: '/services/business-advisory',
       },
       {
         icon: Landmark,
         title: 'Personal Tax Planning',
         desc: 'Inheritance tax, estate planning, and dividend strategies.',
-        href: '#personal-tax',
+        href: '/services/personal-tax-planning',
       },
       {
         icon: Building2,
         title: 'Company Formations',
         desc: 'Complete incorporation service including registered office.',
-        href: '#formations',
+        href: '/services/limited-company-formations',
       },
       {
         icon: Shield,
         title: 'Fee Protection',
         desc: 'Tax investigation insurance protecting you from HMRC enquiry fees.',
-        href: '#fee-protection',
+        href: '/services/fee-protection',
       },
     ]
   }
@@ -186,23 +187,27 @@ export function Services() {
                 </div>
 
                 {/* Services Grid */}
-                <div className="p-6 md:p-8 lg:p-10 grid sm:grid-cols-2 gap-x-8 lg:gap-x-10 gap-y-8 lg:gap-y-12 flex-1 bg-white">
-                  {activeData.services.map((service, idx) => {
-                    const Icon = service.icon;
-                    return (
-                      <div key={idx} className="group">
-                        <div className="flex items-center gap-4 mb-4">
-                          <div className="w-12 h-12  bg-section-bg text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-md">
-                            <Icon size={24} />
+                <div className="p-6 md:p-8 lg:p-10 flex-1 bg-white">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {activeData.services.map((s) => {
+                      const Icon = s.icon;
+                      return (
+                        <Link 
+                          key={s.title}
+                          href={s.href}
+                          className="flex items-start gap-4 p-4 border border-border-light bg-white hover:bg-section-bg transition-colors group cursor-pointer"
+                        >
+                          <div className="w-10 h-10 bg-section-bg text-primary flex items-center justify-center shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                            <Icon size={20} />
                           </div>
-                          <h4 className="font-bold text-text-main text-lg">{service.title}</h4>
-                        </div>
-                        <p className="text-text-secondary text-sm leading-relaxed pl-[64px]">
-                          {service.desc}
-                        </p>
-                      </div>
-                    );
-                  })}
+                          <div>
+                            <h4 className="font-bold text-text-main text-sm mb-1">{s.title}</h4>
+                            <p className="text-text-secondary text-xs leading-relaxed">{s.desc}</p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
 
                 <div className="bg-section-bg p-6 text-center border-t border-border-light shrink-0">

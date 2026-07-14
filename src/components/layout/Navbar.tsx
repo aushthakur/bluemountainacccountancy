@@ -5,64 +5,66 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Phone, Calculator, BookOpen, Briefcase, FileText, TrendingUp, UserCheck, Building, ClipboardList } from 'lucide-react';
 
+import Link from 'next/link';
+
 const services = [
   { 
     name: 'Accounting Services', 
-    href: '#services', 
+    href: '/services/accounting-services', 
     desc: 'Comprehensive end-to-end accounting for businesses.',
     icon: <Calculator className="w-5 h-5 text-primary" />
   },
   { 
     name: 'Bookkeeping', 
-    href: '#bookkeeping',
+    href: '/services/bookkeeping-services',
     desc: 'Accurate and timely recording of financial transactions.',
     icon: <BookOpen className="w-5 h-5 text-primary" />
   },
   { 
     name: 'Payroll', 
-    href: '#payroll',
+    href: '/services/payroll-services',
     desc: 'Hassle-free payroll management and compliance.',
     icon: <Briefcase className="w-5 h-5 text-primary" />
   },
   { 
     name: 'VAT Returns', 
-    href: '#vat',
+    href: '/services/vat-returns',
     desc: 'Expert VAT preparation and HMRC submission.',
     icon: <FileText className="w-5 h-5 text-primary" />
   },
   { 
     name: 'Corporate Tax Planning', 
-    href: '#tax',
+    href: '/services/corporate-tax-planning',
     desc: 'Strategic tax planning for optimal efficiency.',
     icon: <TrendingUp className="w-5 h-5 text-primary" />
   },
   { 
     name: 'Self Assessment', 
-    href: '#selfassessment',
+    href: '/services/self-assessment',
     desc: 'Personal tax returns completed on time.',
     icon: <UserCheck className="w-5 h-5 text-primary" />
   },
   { 
     name: 'Limited Company Formations', 
-    href: '#formations',
+    href: '/services/limited-company-formations',
     desc: 'Quick and easy setup for your new company.',
     icon: <Building className="w-5 h-5 text-primary" />
   },
   { 
     name: 'Company Secretarial', 
-    href: '#secretarial',
+    href: '/services/company-secretarial',
     desc: 'Administrative support and legal compliance.',
     icon: <ClipboardList className="w-5 h-5 text-primary" />
   },
 ];
 
 const areas = [
-  'Accountants Milton Keynes',
-  'Accountants Northampton',
-  'Accountants Bedford',
-  'Accountants Luton',
-  'Accountants Kettering',
-  'Accountants Corby',
+  { name: 'Accountants Milton Keynes', href: '/areas/milton-keynes' },
+  { name: 'Accountants Northampton', href: '/areas/northampton' },
+  { name: 'Accountants Bedford', href: '/areas/bedford' },
+  { name: 'Accountants Luton', href: '/areas/luton' },
+  { name: 'Accountants Kettering', href: '/areas/kettering' },
+  { name: 'Accountants Corby', href: '/areas/corby' },
 ];
 
 export function Navbar() {
@@ -139,15 +141,13 @@ export function Navbar() {
                   >
                     <div className="grid grid-cols-2 gap-x-8 gap-y-6">
                       {services.map((s) => (
-                        <a key={s.name} href={s.href} className="flex items-start gap-4 group/item hover:bg-section-bg p-3  transition-colors">
-                          <div className="bg-section-bg group-hover/item:bg-white p-2  transition-colors border border-border-light">
-                            {s.icon}
-                          </div>
-                          <div>
-                            <h4 className="text-sm font-semibold text-text-main group-hover/item:text-primary transition-colors mb-1">{s.name}</h4>
-                            <p className="text-xs text-text-secondary leading-relaxed">{s.desc}</p>
-                          </div>
-                        </a>
+                        <Link key={s.name} href={s.href} className="flex items-start gap-4 p-3 hover:bg-section-bg transition-colors rounded-xl">
+                        <div className="mt-1 p-2 bg-white rounded-lg shadow-sm border border-border-light">{s.icon}</div>
+                        <div>
+                          <div className="text-sm font-bold mb-0.5 text-primary">{s.name}</div>
+                          <div className="text-xs text-text-secondary leading-relaxed">{s.desc}</div>
+                        </div>
+                      </Link>
                       ))}
                     </div>
                   </motion.div>
@@ -176,18 +176,18 @@ export function Navbar() {
                     onMouseLeave={() => setAreasOpen(false)}
                   >
                     {areas.map((area) => (
-                      <a key={area} href="#" className="block px-4 py-2.5 text-sm text-text-main hover:bg-section-bg hover:text-primary transition-colors">
-                        {area}
-                      </a>
+                      <Link key={area.name} href={area.href} className="block px-4 py-2.5 text-sm text-text-main hover:bg-section-bg hover:text-primary transition-colors">
+                        {area.name}
+                      </Link>
                     ))}
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <a href="#pricing" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>Pricing Packages</a>
-            <a href="#guides" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>Guides &amp; Blog</a>
-            <a href="#about" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>About Us</a>
+            <Link href="/pricing" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>Pricing Packages</Link>
+            <Link href="/blog" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>Guides &amp; Blog</Link>
+            <Link href="/about" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>About Us</Link>
           </nav>
 
           {/* Right side contact (removed CTA) */}
@@ -218,21 +218,23 @@ export function Navbar() {
               <div className="px-6 pb-6 pt-2 flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-80px)]">
                 <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mt-4 mb-2">Services</p>
                 {services.map((s) => (
-                  <a key={s.name} href={s.href} className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50 flex items-center gap-3">
+                  <Link key={s.name} href={s.href} className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50 flex items-center gap-3">
                     <span className="bg-section-bg p-1.5 ">{s.icon}</span>
                     {s.name}
-                  </a>
+                  </Link>
                 ))}
                 
                 <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mt-4 mb-2">Areas</p>
                 {areas.map((area) => (
-                  <a key={area} href="#" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">
-                    {area}
-                  </a>
+                  <Link key={area.name} href={area.href} className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">
+                    {area.name}
+                  </Link>
                 ))}
                 
-                <a href="#pricing" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50 mt-2">Pricing Packages</a>
-                <a href="#about" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">About Us</a>
+                <Link href="/pricing" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50 mt-2">Pricing Packages</Link>
+                <Link href="/blog" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">Guides &amp; Blog</Link>
+                <Link href="/about" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">About Us</Link>
+                <Link href="/switch" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">Switch Accountant</Link>
                 
                 <div className="mt-6 flex flex-col gap-3">
                   <a href="tel:+443301753861" className="flex items-center justify-center gap-2 text-primary font-bold bg-section-bg py-3 ">

@@ -2,26 +2,38 @@ import React from 'react';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
 
+import Link from 'next/link';
+
 const serviceLinks = [
-  'Accounting Services', 'Bookkeeping Services', 'Payroll Services',
-  'VAT Returns', 'Self Assessment', 'Corporate Tax Planning',
-  'Limited Company Formations', 'Company Secretarial', 'Property Accountants',
+  { name: 'Accounting Services', href: '/services/accounting-services' },
+  { name: 'Bookkeeping Services', href: '/services/bookkeeping-services' },
+  { name: 'Payroll Services', href: '/services/payroll-services' },
+  { name: 'VAT Returns', href: '/services/vat-returns' },
+  { name: 'Self Assessment', href: '/services/self-assessment' },
+  { name: 'Corporate Tax Planning', href: '/services/corporate-tax-planning' },
+  { name: 'Limited Company Formations', href: '/services/limited-company-formations' },
+  { name: 'Company Secretarial', href: '/services/company-secretarial' },
+  { name: 'Property Accountants', href: '/services/property-accountants' },
 ];
 
 const areaLinks = [
-  'Accountants Milton Keynes', 'Accountants Northampton',
-  'Accountants Bedford', 'Accountants Luton', 'Accountants Kettering',
-  'Accountants Hertfordshire', 'Chartered Accountants Aylesbury',
+  { name: 'Accountants Milton Keynes', href: '/areas/milton-keynes' },
+  { name: 'Accountants Northampton', href: '/areas/northampton' },
+  { name: 'Accountants Bedford', href: '/areas/bedford' },
+  { name: 'Accountants Luton', href: '/areas/luton' },
+  { name: 'Accountants Kettering', href: '/areas/kettering' },
+  { name: 'Chartered Accountants Aylesbury', href: '/areas/aylesbury' },
+  { name: 'Accountants Hertfordshire', href: '/areas/hertfordshire' },
 ];
 
 const quickLinks = [
-  { name: 'About Us', href: '#about' },
-  { name: 'Pricing Packages', href: '#pricing' },
-  { name: 'Blog & Guides', href: '#guides' },
-  { name: 'Switch Accountant', href: '#switch' },
-  { name: 'Reviews', href: '#reviews' },
-  { name: 'Privacy Notice', href: '#privacy' },
-  { name: 'Terms & Conditions', href: '#terms' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Pricing Packages', href: '/pricing' },
+  { name: 'Blog & Guides', href: '/blog' },
+  { name: 'Switch Accountant', href: '/switch' },
+  { name: 'Reviews', href: '/#reviews' },
+  { name: 'Privacy Notice', href: '/legal/privacy' },
+  { name: 'Terms & Conditions', href: '/legal/terms' },
 ];
 
 export function Footer() {
@@ -64,10 +76,10 @@ export function Footer() {
             <h4 className="font-semibold text-white text-sm mb-5 uppercase tracking-widest">Accounting Services</h4>
             <ul className="space-y-2.5">
               {serviceLinks.map((s) => (
-                <li key={s}>
-                  <a href="#services" className="text-sm text-white/60 hover:text-white transition-colors">
-                    {s}
-                  </a>
+                <li key={s.name}>
+                  <Link href={s.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                    {s.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -78,10 +90,10 @@ export function Footer() {
             <h4 className="font-semibold text-white text-sm mb-5 uppercase tracking-widest">Areas We Serve</h4>
             <ul className="space-y-2.5">
               {areaLinks.map((a) => (
-                <li key={a}>
-                  <a href="#areas" className="text-sm text-white/60 hover:text-white transition-colors">
-                    {a}
-                  </a>
+                <li key={a.name}>
+                  <Link href={a.href} className="text-sm text-white/60 hover:text-white transition-colors">
+                    {a.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -110,11 +122,11 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40">
-          <p>© {new Date().getFullYear()} Blue Mountain Accountants Ltd. All rights reserved. Registered in England & Wales. Company No. 12345678</p>
+          <p>© {new Date().getFullYear()} Blue Mountain Accountants Ltd. All rights reserved. Registered in England &amp; Wales. Company No. 12345678</p>
           <div className="flex gap-5">
-            <a href="#" className="hover:text-white transition-colors">Privacy Notice</a>
-            <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
-            <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+            <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy Notice</Link>
+            <Link href="/legal/terms" className="hover:text-white transition-colors">Terms &amp; Conditions</Link>
+            <Link href="/legal/cookie" className="hover:text-white transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>
