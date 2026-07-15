@@ -27,8 +27,8 @@ export function Hero() {
           playsInline
           className="object-cover w-full h-full"
         >
-          {/* Placeholder video source. Replace with your actual video. */}
-          <source src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4" type="video/mp4" />
+          {/* Local Green Mountain video */}
+          <source src="/230882.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
       </div>

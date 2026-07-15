@@ -85,10 +85,10 @@ export function Navbar() {
     ? "bg-white border-b border-border-light shadow-sm text-text-main" 
     : "bg-transparent text-white";
 
-  const logoColor = isScrolled ? "text-primary" : "text-white";
-  const logoSubColor = isScrolled ? "text-text-secondary" : "text-white/80";
-  const linkColor = isScrolled ? "text-text-main hover:text-primary" : "text-white hover:text-white/80";
-  const phoneColor = isScrolled ? "text-primary hover:text-accent" : "text-white hover:text-white/80";
+  const logoColor = "text-primary";
+  const logoSubColor = isScrolled ? "text-text-secondary" : "text-white drop-shadow-md";
+  const linkColor = isScrolled ? "text-text-main hover:text-primary transition-colors" : "text-white hover:text-white/80 drop-shadow-md transition-colors";
+  const phoneColor = isScrolled ? "text-primary hover:text-accent transition-colors" : "text-white hover:text-white/80 drop-shadow-md transition-colors";
   
   // Keep dropdowns matching light theme regardless of scroll position
   const dropdownClass = "absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-border-light p-6 w-[min(800px,95vw)] z-50 mt-2 text-text-main";
@@ -96,7 +96,7 @@ export function Navbar() {
   return (
     <>
       <motion.header
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${navClass}`}
+        className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'top-0' : 'top-2 lg:top-3'} ${navClass}`}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -105,12 +105,12 @@ export function Navbar() {
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="relative w-48 sm:w-64 lg:w-80 h-12 lg:h-16 flex items-center">
+            <div className="relative w-56 sm:w-72 lg:w-96 h-14 lg:h-20 flex items-center">
               <Image 
-                src={isScrolled ? "/blue-logo-transparent.png" : "/white-logo-transparent.png"}
+                src={isScrolled ? "/blue-logo-transparent.png" : "/skyblue-logo.png"}
                 alt="Blue Mountain Accountants Logo"
                 fill
-                className="object-contain object-left transition-opacity duration-300"
+                className={`object-contain object-left transition-all duration-300`}
                 priority
               />
             </div>
@@ -201,7 +201,7 @@ export function Navbar() {
           </div>
 
           {/* Mobile Toggle */}
-          <button className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-text-main' : 'text-white'}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          <button className={`lg:hidden p-2 transition-colors text-text-main`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>

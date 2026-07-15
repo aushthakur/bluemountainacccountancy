@@ -48,7 +48,7 @@ export function Footer() {
           <div>
             <div className="relative w-48 h-12 mb-6">
               <Image 
-                src="/white-logo-transparent.png" 
+                src="/skyblue-logo.png" 
                 alt="Blue Mountain Accountants Logo" 
                 fill 
                 className="object-contain object-left" 
