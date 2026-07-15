@@ -27,8 +27,8 @@ export function Hero() {
           playsInline
           className="object-cover w-full h-full"
         >
-          {/* Local Green Mountain video */}
-          <source src="/230882.mp4" type="video/mp4" />
+          {/* Local Green Mountain video (Compressed) */}
+          <source src="/230882_small.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
       </div>
