@@ -19,7 +19,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Blue Mountain Accountants | Chartered Accountants UK | Online Accounting, Tax & Bookkeeping",
-  description: "Award-winning ICAEW Chartered Accountants offering online accounting, bookkeeping, payroll, VAT, self assessment and corporate tax services for UK sole traders, limited companies and SMEs. Fixed-fee monthly packages. Book your free consultation today.",
+  description: "Award-winning ACCA Chartered Certified Accountants offering online accounting, bookkeeping, payroll, VAT, self assessment and corporate tax services for UK sole traders, limited companies and SMEs. Fixed-fee monthly packages. Book your free consultation today.",
   keywords: "chartered accountants UK, accountants Milton Keynes, limited company accountants, sole trader accountants, VAT returns, self assessment, bookkeeping UK, Making Tax Digital, IR35 accountants",
 };
 

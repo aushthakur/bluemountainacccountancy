@@ -8,7 +8,6 @@ import { Pricing } from '@/components/sections/Pricing';
 import { Process } from '@/components/sections/Process';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { Insights } from '@/components/sections/Insights';
-import { AreasWeServe } from '@/components/sections/AreasWeServe';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Footer } from '@/components/layout/Footer';
 
@@ -26,7 +25,6 @@ export default function Home() {
         <Process />
         <Testimonials />
         <Insights />
-        <AreasWeServe />
         <FinalCTA />
       </main>
       <Footer />

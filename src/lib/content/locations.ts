@@ -7,7 +7,7 @@ export const locationsContent = {
         title: "Your Local Milton Keynes Accountants",
         content: [
           "Located in the heart of MK, Blue Mountain Accountants provides expert, fixed-fee tax and accounting services to the vibrant local business community.",
-          "From tech startups in Central Milton Keynes to established manufacturing firms in Bletchley, our ICAEW-qualified team understands the specific challenges and opportunities within the local economy."
+          "From tech startups in Central Milton Keynes to established manufacturing firms in Bletchley, our ACCA-qualified team understands the specific challenges and opportunities within the local economy."
         ],
         list: [
           "Face-to-face meetings available at our MK office",

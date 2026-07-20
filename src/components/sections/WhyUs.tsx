@@ -8,8 +8,8 @@ import { CheckCircle2 } from 'lucide-react';
 const items = [
   {
     heading: 'Who We Are',
-    title: 'ICAEW-Qualified Chartered Accountants with 20+ Years of Experience',
-    body: 'Blue Mountain Accountants is an award-winning, ICAEW-qualified firm serving sole traders, limited companies, landlords and SMEs across Milton Keynes, Northamptonshire, Bedfordshire, Hertfordshire and the whole of the UK online.',
+    title: 'ACCA-Qualified Chartered Certified Accountants with 20+ Years of Experience',
+    body: 'Blue Mountain Accountants is an award-winning, ACCA-qualified firm serving sole traders, limited companies, landlords and SMEs across Milton Keynes, Northamptonshire, Bedfordshire, Hertfordshire and the whole of the UK online.',
     points: [
       'Specialists in Making Tax Digital (MTD) compliance',
       'Authorised Xero, QuickBooks & FreeAgent partners',

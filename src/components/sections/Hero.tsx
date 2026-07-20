@@ -7,7 +7,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useConsultationModal } from '@/lib/ConsultationModalContext';
 
 const stats = [
-  { value: '20+', label: 'Years Experience' },
+  { value: '100+', label: 'Years of Combined Team Experience' },
   { value: '5,000+', label: 'Happy Clients' },
   { value: '4.9★', label: 'Google Rating' },
   { value: '98%', label: 'Client Retention' },
@@ -67,7 +67,7 @@ export function Hero() {
           {/* Trust badges */}
           <ul className="space-y-3">
             {[
-              'ICAEW Qualified Chartered Accountants',
+              'ACCA Qualified Chartered Accountants',
               'Fixed-fee monthly packages — no surprises',
               'Xero, QuickBooks & FreeAgent Partners',
             ].map((item) => (

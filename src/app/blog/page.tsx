@@ -56,7 +56,7 @@ export default function BlogPage() {
       <main>
         <PageHero
           title="Expert Guides & Tax Insights"
-          subtitle="Free, practical guides written by our ICAEW-qualified accountants. Stay ahead of HMRC changes and learn how to maximise your tax efficiency."
+          subtitle="Free, practical guides written by our ACCA-qualified accountants. Stay ahead of HMRC changes and learn how to maximise your tax efficiency."
           category="Blog & Guides"
         />
 

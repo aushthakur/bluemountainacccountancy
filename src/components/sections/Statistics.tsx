@@ -24,7 +24,7 @@ function Counter({ end, suffix = '', duration = 2000 }: { end: number; suffix?: 
 }
 
 const stats = [
-  { end: 20, suffix: '+', label: 'Years of Expertise', sub: 'Serving UK businesses since 2004' },
+  { end: 100, suffix: '+', label: 'Years of Experience', sub: 'Over 100 years of combined experience of the team.' },
   { end: 5000, suffix: '+', label: 'Happy Clients', sub: 'Across sole traders, LTDs & SMEs' },
   { end: 98, suffix: '%', label: 'Client Retention Rate', sub: 'Clients who stay year after year' },
   { end: 4.9, suffix: '★', label: 'Google Rating', sub: 'Verified reviews on Google My Business', isDecimal: true },

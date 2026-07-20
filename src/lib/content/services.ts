@@ -20,7 +20,7 @@ export const servicesContent = {
       {
         title: "Why Outsource Your Accounting to Us?",
         content: [
-          "Handling accounting in-house can be time-consuming and prone to expensive errors. By partnering with our ICAEW-qualified team, you ensure absolute compliance with HMRC regulations while freeing up your time to focus on what you do best—running your business.",
+          "Handling accounting in-house can be time-consuming and prone to expensive errors. By partnering with our ACCA-qualified team, you ensure absolute compliance with HMRC regulations while freeing up your time to focus on what you do best—running your business.",
           "We offer fixed-fee monthly packages, meaning you never have to worry about surprise bills or hourly charges when you pick up the phone for advice."
         ]
       }

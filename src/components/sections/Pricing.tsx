@@ -6,10 +6,10 @@ import { Check, X } from 'lucide-react';
 
 const plans = [
   {
-    name: 'Starter',
+    name: 'Ltd Company Starter',
     subtitle: 'Perfect for Sole Traders',
-    price: '£49',
-    freq: '/month',
+    price: '£85',
+    freq: ' + VAT / month',
     popular: false,
     features: [
       { text: 'Self Assessment Tax Return', inc: true },
@@ -24,10 +24,10 @@ const plans = [
     cta: 'Get Started',
   },
   {
-    name: 'Growth',
+    name: 'Ltd Company Growth',
     subtitle: 'Best for Limited Companies',
-    price: '£119',
-    freq: '/month',
+    price: '£175',
+    freq: ' + VAT / month',
     popular: true,
     features: [
       { text: 'Annual Statutory Accounts', inc: true },

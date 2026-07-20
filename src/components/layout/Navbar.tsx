@@ -3,9 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Phone, Calculator, BookOpen, Briefcase, FileText, TrendingUp, UserCheck, Building, ClipboardList } from 'lucide-react';
+import { Home, Menu, X, ChevronDown, Phone, Calculator, BookOpen, Briefcase, FileText, TrendingUp, UserCheck, Building, ClipboardList } from 'lucide-react';
 
 import Link from 'next/link';
+import { useConsultationModal } from '@/lib/ConsultationModalContext';
 
 const services = [
   { 
@@ -58,20 +59,11 @@ const services = [
   },
 ];
 
-const areas = [
-  { name: 'Accountants Milton Keynes', href: '/areas/milton-keynes' },
-  { name: 'Accountants Northampton', href: '/areas/northampton' },
-  { name: 'Accountants Bedford', href: '/areas/bedford' },
-  { name: 'Accountants Luton', href: '/areas/luton' },
-  { name: 'Accountants Kettering', href: '/areas/kettering' },
-  { name: 'Accountants Corby', href: '/areas/corby' },
-];
-
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [areasOpen, setAreasOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { openModal } = useConsultationModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,14 +73,13 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navClass = isScrolled 
-    ? "bg-white border-b border-border-light shadow-sm text-text-main" 
-    : "bg-transparent text-white";
+  const navContainerClass = "top-4 lg:top-8 w-full px-4 lg:px-8 max-w-[1600px] left-1/2 -translate-x-1/2";
+  const navInnerClass = "bg-white/95 backdrop-blur-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-[3rem] text-text-main";
 
   const logoColor = "text-primary";
-  const logoSubColor = isScrolled ? "text-text-secondary" : "text-white drop-shadow-md";
-  const linkColor = isScrolled ? "text-text-main hover:text-primary transition-colors" : "text-white hover:text-white/80 drop-shadow-md transition-colors";
-  const phoneColor = isScrolled ? "text-primary hover:text-accent transition-colors" : "text-white hover:text-white/80 drop-shadow-md transition-colors";
+  const logoSubColor = "text-text-secondary";
+  const linkColor = "text-text-main hover:text-primary transition-colors font-medium";
+  const phoneColor = "text-primary hover:text-accent transition-colors font-semibold";
   
   // Keep dropdowns matching light theme regardless of scroll position
   const dropdownClass = "absolute top-full left-1/2 -translate-x-1/2 bg-white shadow-2xl border border-border-light p-6 w-[min(800px,95vw)] z-50 mt-2 text-text-main";
@@ -96,18 +87,18 @@ export function Navbar() {
   return (
     <>
       <motion.header
-        className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'top-0' : 'top-2 lg:top-3'} ${navClass}`}
+        className={`fixed z-50 transition-all duration-500 ease-in-out ${navContainerClass}`}
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between gap-6">
+        <div className={`mx-auto flex items-center justify-between gap-6 px-8 h-20 lg:h-24 w-full transition-all duration-500 ${navInnerClass}`}>
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="relative w-56 sm:w-72 lg:w-96 h-14 lg:h-20 flex items-center">
+            <div className="relative flex items-center transition-all duration-500 w-56 sm:w-72 lg:w-80 h-14 lg:h-16">
               <Image 
-                src={isScrolled ? "/blue-logo-transparent.png" : "/skyblue-logo.png"}
+                src="/logo.png"
                 alt="Blue Mountain Accountants Logo"
                 fill
                 className={`object-contain object-left transition-all duration-300`}
@@ -118,6 +109,10 @@ export function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden xl:flex items-center gap-2 flex-1 justify-center">
+
+            <Link href="/" className={`flex items-center gap-1 text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>
+              <Home size={16} /> Home
+            </Link>
 
             {/* Services Mega Dropdown */}
             <div className="relative group">
@@ -155,55 +150,33 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Areas Dropdown */}
-            <div className="relative group">
-              <button
-                className={`flex items-center gap-1 text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}
-                onMouseEnter={() => setAreasOpen(true)}
-                onMouseLeave={() => setAreasOpen(false)}
-              >
-                Areas We Serve <ChevronDown size={14} />
-              </button>
-              <AnimatePresence>
-                {areasOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 bg-white shadow-xl border border-border-light  py-2 w-64 z-50 mt-2 text-text-main"
-                    onMouseEnter={() => setAreasOpen(true)}
-                    onMouseLeave={() => setAreasOpen(false)}
-                  >
-                    {areas.map((area) => (
-                      <Link key={area.name} href={area.href} className="block px-4 py-2.5 text-sm text-text-main hover:bg-section-bg hover:text-primary transition-colors">
-                        {area.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
             <Link href="/pricing" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>Pricing Packages</Link>
             <Link href="/blog" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>Guides &amp; Blog</Link>
             <Link href="/about" className={`text-sm font-medium transition-colors px-3 py-2 ${linkColor}`}>About Us</Link>
           </nav>
 
-          {/* Right side contact (removed CTA) */}
+          {/* Right side contact */}
           <div className="hidden lg:flex items-center gap-6">
             <div className="flex flex-col items-end hidden xl:flex">
               <span className={`text-[10px] uppercase tracking-widest font-semibold transition-colors ${logoSubColor}`}>Award-Winning UK</span>
-              <a href="tel:+443301753861" className={`text-sm font-bold flex items-center gap-1.5 transition-colors ${phoneColor}`}>
-                <Phone size={14} /> 0330 175 3861
+              <a href="tel:+442082056353" className={`text-sm font-bold flex items-center gap-1.5 transition-colors ${phoneColor}`}>
+                <Phone size={14} /> 0208 205 6353
               </a>
             </div>
+            <button onClick={openModal} className="bg-primary text-white hover:bg-primary/90 px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-md">
+              Get a call back
+            </button>
           </div>
 
-          {/* Mobile Toggle */}
-          <button className={`lg:hidden p-2 transition-colors text-text-main`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
+          {/* Mobile Actions (CTA + Toggle) */}
+          <div className="flex lg:hidden items-center gap-2 sm:gap-4">
+            <button onClick={openModal} className="bg-primary text-white hover:bg-primary/90 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs font-bold transition-all shadow-md whitespace-nowrap">
+              Get a call back
+            </button>
+            <button className="p-1 sm:p-2 transition-colors text-text-main" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -213,21 +186,17 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-white border-t border-border-light shadow-lg overflow-hidden flex flex-col text-text-main"
+              className="lg:hidden bg-white/95 backdrop-blur-2xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.12)] rounded-[2rem] mt-2 mx-4 sm:mx-8 overflow-hidden flex flex-col text-text-main"
             >
-              <div className="px-6 pb-6 pt-2 flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-80px)]">
+              <div className="px-6 pb-6 pt-4 flex flex-col gap-1 overflow-y-auto max-h-[calc(100vh-140px)]">
+                <Link href="/" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50 flex items-center gap-2 mt-2">
+                  <Home size={16} /> Home
+                </Link>
                 <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mt-4 mb-2">Services</p>
                 {services.map((s) => (
                   <Link key={s.name} href={s.href} className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50 flex items-center gap-3">
                     <span className="bg-section-bg p-1.5 ">{s.icon}</span>
                     {s.name}
-                  </Link>
-                ))}
-                
-                <p className="text-xs font-bold text-text-secondary uppercase tracking-widest mt-4 mb-2">Areas</p>
-                {areas.map((area) => (
-                  <Link key={area.name} href={area.href} className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">
-                    {area.name}
                   </Link>
                 ))}
                 
@@ -237,8 +206,11 @@ export function Navbar() {
                 <Link href="/switch" className="text-sm text-text-main hover:text-primary py-2 border-b border-border-light/50">Switch Accountant</Link>
                 
                 <div className="mt-6 flex flex-col gap-3">
-                  <a href="tel:+443301753861" className="flex items-center justify-center gap-2 text-primary font-bold bg-section-bg py-3 ">
-                    <Phone size={16} /> 0330 175 3861
+                  <button onClick={() => { setIsMobileMenuOpen(false); openModal(); }} className="flex items-center justify-center gap-2 text-white font-bold bg-primary rounded-xl py-3 shadow-md">
+                    Get a call back
+                  </button>
+                  <a href="tel:+442082056353" className="flex items-center justify-center gap-2 text-primary font-bold bg-section-bg rounded-xl py-3 ">
+                    <Phone size={16} /> 0208 205 6353
                   </a>
                 </div>
               </div>

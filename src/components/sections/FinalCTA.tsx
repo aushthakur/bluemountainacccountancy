@@ -37,10 +37,16 @@ export function FinalCTA() {
             </ul>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="tel:+443301753861"
+                href="tel:+442082056353"
                 className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4  hover:bg-white/10 transition-colors"
               >
-                <Phone size={16} /> 0330 175 3861
+                <Phone size={16} /> 0208 205 6353
+              </a>
+              <a
+                href="tel:+447966639487"
+                className="inline-flex items-center justify-center gap-2 border border-white/30 text-white font-semibold px-8 py-4  hover:bg-white/10 transition-colors"
+              >
+                <Phone size={16} /> 0796 6639 487
               </a>
             </div>
           </motion.div>
@@ -121,8 +127,11 @@ export function FinalCTA() {
               <a href="mailto:info@bluemountain.co.uk" className="flex items-center gap-1.5 hover:text-primary">
                 <Mail size={12} /> info@bluemountain.co.uk
               </a>
-              <a href="tel:+443301753861" className="flex items-center gap-1.5 hover:text-primary">
-                <Phone size={12} /> 0330 175 3861
+              <a href="tel:+442082056353" className="flex items-center gap-1.5 hover:text-primary">
+                <Phone size={12} /> 0208 205 6353
+              </a>
+              <a href="tel:+447966639487" className="flex items-center gap-1.5 hover:text-primary">
+                <Phone size={12} /> 0796 6639 487
               </a>
             </div>
           </motion.div>

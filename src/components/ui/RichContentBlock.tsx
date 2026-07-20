@@ -70,10 +70,16 @@ export function RichContentBlock({ sections, sidebarContent }: RichContentBlockP
                   Book Free Consultation
                 </a>
                 <a 
-                  href="tel:+443301753861" 
+                  href="tel:+442082056353" 
                   className="block w-full text-center border border-primary text-primary font-semibold py-4 hover:bg-white transition-colors mt-3"
                 >
-                  Call 0330 175 3861
+                  Tel: 0208 205 6353
+                </a>
+                <a 
+                  href="tel:+447966639487" 
+                  className="block w-full text-center border border-primary text-primary font-semibold py-4 hover:bg-white transition-colors mt-3"
+                >
+                  Mob: 0796 6639 487
                 </a>
               </div>
             )}

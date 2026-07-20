@@ -7,39 +7,17 @@ import { CheckCircle, Award, Users, Clock, Star, TrendingUp, Shield, Heart } fro
 
 const team = [
   {
-    name: 'James Harrison',
-    role: 'Managing Director & ICAEW Chartered Accountant',
-    qualifications: 'ACA, CTA',
-    bio: 'James founded Blue Mountain Accountants in 2004 with a mission to provide SMEs with the calibre of financial advice previously reserved for large corporates. With over 25 years of experience spanning Big 4 advisory, SME growth finance, and corporate tax planning, James leads our senior advisory team.',
+    name: 'Rajan Phuyal',
+    role: 'Director & Senior Accountant',
   },
   {
-    name: 'Sarah Mitchell',
-    role: 'Head of Tax & Compliance',
-    qualifications: 'FCCA, ATT',
-    bio: 'Sarah is our in-house tax specialist with deep expertise in corporate tax planning, R&D tax credits, and HMRC dispute resolution. She has saved our clients millions in tax over her 18-year career and is a regular contributor to UK tax publications.',
+    name: 'Mukesh Kumar',
+    role: 'Business Development Manager',
   },
   {
-    name: 'David Okafor',
-    role: 'Client Services Director',
-    qualifications: 'ACA, CIPD',
-    bio: 'David oversees our client onboarding and relationship management, ensuring every business we work with receives a seamless, personalised experience. He is passionate about making accounting accessible and stress-free for business owners of all sizes.',
+    name: 'Priti Gautam',
+    role: 'Payroll Manager',
   },
-  {
-    name: 'Emma Clarke',
-    role: 'Head of Cloud Accounting',
-    qualifications: 'AAT, Xero Certified Advisor',
-    bio: 'Emma leads our digital transformation practice, helping clients migrate to cloud accounting platforms and prepare for Making Tax Digital. She is a certified advisor across Xero, QuickBooks, FreeAgent, and Sage.',
-  },
-];
-
-const milestones = [
-  { year: '2004', event: 'Blue Mountain Accountants founded in Milton Keynes' },
-  { year: '2008', event: 'Awarded ICAEW Authorised Training Employer status' },
-  { year: '2012', event: 'Expanded to serve Northampton, Bedford, and Luton' },
-  { year: '2016', event: 'Launched cloud accounting services; first 500 clients on Xero' },
-  { year: '2019', event: 'Named Best Accountancy Firm (South East) at the National Accountancy Awards' },
-  { year: '2022', event: 'Surpassed 5,000 active clients across the UK' },
-  { year: '2024', event: 'Achieved 4.9★ Google rating from 1,400+ verified reviews' },
 ];
 
 const values = [
@@ -90,7 +68,7 @@ export default function AboutPage() {
                 'Response to all queries within one business day, guaranteed',
                 'Proactive tax-saving advice, not just reactive compliance',
                 'Seamless digital processes using Xero, QuickBooks, and FreeAgent',
-                'ICAEW-regulated for your peace of mind',
+                'ACCA-regulated for your peace of mind',
               ].map(c => (
                 <div key={c} className="flex items-start gap-4 p-4 border border-border-light">
                   <CheckCircle className="text-primary mt-0.5 flex-shrink-0" size={20} />
@@ -137,36 +115,10 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold text-primary">{member.name}</h3>
-                    <p className="text-sm text-accent font-semibold mb-1">{member.qualifications}</p>
                     <p className="text-xs text-text-secondary uppercase tracking-wide mb-3">{member.role}</p>
-                    <p className="text-text-secondary text-sm leading-relaxed">{member.bio}</p>
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Timeline */}
-        <section className="py-20 bg-primary">
-          <div className="max-w-[900px] mx-auto px-6">
-            <div className="text-center mb-14">
-              <h2 className="text-4xl font-bold text-white mb-4">Our Journey</h2>
-              <p className="text-white/70">Two decades of growth, innovation, and client success.</p>
-            </div>
-            <div className="relative">
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-white/20"></div>
-              <div className="space-y-8">
-                {milestones.map((m, i) => (
-                  <div key={i} className="flex gap-8 items-start pl-20 relative">
-                    <div className="absolute left-5 w-6 h-6 bg-accent flex items-center justify-center z-10">
-                      <div className="w-2 h-2 bg-white"></div>
-                    </div>
-                    <div className="text-accent font-bold text-lg w-16 flex-shrink-0 absolute left-20">{m.year}</div>
-                    <p className="text-white/80 ml-20">{m.event}</p>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>

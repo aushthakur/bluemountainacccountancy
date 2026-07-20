@@ -113,8 +113,11 @@ export function ConsultationModal() {
                     </p>
                     <div className="bg-section-bg border border-border-light p-5 text-sm text-text-secondary mb-6">
                       <p className="font-semibold text-text-main mb-1">Can't wait? Call us now:</p>
-                      <a href="tel:+443301753861" className="text-primary font-bold text-lg flex items-center justify-center gap-2">
-                        <Phone size={18} /> 0330 175 3861
+                      <a href="tel:+442082056353" className="text-primary font-bold text-lg flex items-center justify-center gap-2 mb-2">
+                        <Phone size={18} /> 0208 205 6353
+                      </a>
+                      <a href="tel:+447966639487" className="text-primary font-bold text-lg flex items-center justify-center gap-2">
+                        <Phone size={18} /> 0796 6639 487
                       </a>
                     </div>
                     <button
