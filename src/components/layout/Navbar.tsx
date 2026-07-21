@@ -92,11 +92,11 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className={`mx-auto flex items-center justify-between gap-6 px-8 h-20 lg:h-24 w-full transition-all duration-500 ${navInnerClass}`}>
+        <div className={`mx-auto flex items-center justify-between gap-2 sm:gap-6 px-4 sm:px-8 h-20 lg:h-24 w-full transition-all duration-500 ${navInnerClass}`}>
 
           {/* Logo */}
           <a href="/" className="flex items-center gap-3 flex-shrink-0">
-            <div className="relative flex items-center transition-all duration-500 w-56 sm:w-72 lg:w-80 h-14 lg:h-16">
+            <div className="relative flex items-center transition-all duration-500 w-40 sm:w-56 md:w-72 lg:w-80 h-12 sm:h-14 lg:h-16">
               <Image 
                 src="/logo.png"
                 alt="Blue Mountain Accountants Logo"
